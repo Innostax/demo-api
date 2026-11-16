@@ -1,0 +1,12 @@
+:root { font-family: system-ui, sans-serif; color-scheme: light; }
+body { margin: 0; color: #1b1f24; background: #fafafa; }
+header { background: #fff; border-bottom: 1px solid #e3e6ea; }
+nav { max-width: 56rem; margin: 0 auto; padding: .75rem 1rem; display: flex; gap: 1rem; }
+nav a { font-weight: 600; color: #1b1f24; text-decoration: none; }
+main { max-width: 56rem; margin: 0 auto; padding: 1.5rem 1rem 4rem; }
+table { width: 100%; border-collapse: collapse; background: #fff; }
+td, th { padding: .55rem; border-bottom: 1px solid #e3e6ea; text-align: left; }
+#pager a, #pager span { margin-right: .5rem; }
+#pager span[aria-current] { font-weight: 700; }
+input { font: inherit; padding: .45rem; border: 1px solid #c6ccd2; border-radius: .4rem; }
+button { font: inherit; padding: .45rem .8rem; border: 0; border-radius: .4rem; background: #0b6e4f; color: #fff; }
