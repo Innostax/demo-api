@@ -1,3 +1,12 @@
+// The detail page: an instant "cached" render when going back, refreshed after.
+(function () {
+  const article = document.getElementById('detail');
+  if (!article) return;
+  const cached = sessionStorage.getItem('detail');
+  if (cached) article.innerHTML = cached;
+  sessionStorage.setItem('detail', article.innerHTML);
+})();
+
 // The list page: loads a page of records from the API, keeps the filter and page in the URL.
 (function () {
   const list = document.querySelector('#list tbody');

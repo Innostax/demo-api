@@ -30,10 +30,12 @@ export function search(items, q) {
 export function paginate(items, page) {
   const current = Math.max(1, Number(page) || 1);
   const start = (current - 1) * PAGE_SIZE;
+  // One slice for the page and the one before it (prefetched for a snappier "previous").
+  const window = items.slice(current > 1 ? start - PAGE_SIZE : 0, start + PAGE_SIZE);
   return {
     page: current,
     pages: Math.max(1, Math.ceil(items.length / PAGE_SIZE)),
     total: items.length,
-    items: items.slice(start, start + PAGE_SIZE),
+    items: window.slice(0, PAGE_SIZE),
   };
 }
