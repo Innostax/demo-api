@@ -10,7 +10,9 @@ const here = path.dirname(fileURLToPath(import.meta.url));
 app.use('/static', express.static(path.join(here, '..', 'public')));
 
 app.get('/api/items', (req, res) => {
-  const q = typeof req.query.q === 'string' ? req.query.q : '';
+  const raw = typeof req.query.q === 'string' ? req.query.q : '';
+  // Browsers send spaces as "+" or "%20": normalise before searching.
+  const q = decodeURIComponent(raw.replace(/\+|\s+/g, '%'));
   res.json(paginate(search(ITEMS, q), req.query.page));
 });
 
